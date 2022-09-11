@@ -11,33 +11,42 @@ let operands = [firstOperand, secondOperand];
 let answer = 0;
 let shouldResetScreen = true;
 
-function add(a,b){
-  answer = a + b
-  console.log(answer)
+
+function storeValue(a,b){
+  firstOperand = a;
+  secondOperand = b;
+  operands = [firstOperand, secondOperand]
 }
 
-add(2,2)
+storeValue(20, 5)
+
+function add(a,b){
+  answer = a + b;
+  console.log(answer);
+}
+
+add(firstOperand, secondOperand);
 
 function subtract(a,b){
-  answer = a - b
-  console.log(answer)
+  answer = a - b;
+  console.log(answer);
 }
 
-subtract(10, 5)
+subtract(firstOperand, secondOperand);
 
 function multiply(a,b){
-  answer = a * b
-  console.log(answer)
+  answer = a * b;
+  console.log(answer);
 }
 
-multiply(6, 2)
+multiply(firstOperand, secondOperand);
 
 function divide(a,b){
-  answer = a / b
-  console.log(answer)
+  answer = a / b;
+  console.log(answer);
 }
 
-divide(24,2)
+divide(firstOperand, secondOperand);
 
 numerals.forEach((button) => {
   let value = button.value;

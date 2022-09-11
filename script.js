@@ -14,25 +14,34 @@ let shouldClearDisplay = true;
 function checkClearDisplay(){
   if(shouldClearDisplay == true){
     mainDisplay.textContent = "";
-    shouldResetDisplay = false;
+    shouldClearDisplay = false;
   }
 }
 
-function updateDisplayText(a){
+let textValue = '';
+let convertedValue = 0
+
+function displayText(a){
   checkClearDisplay();
-  mainDisplay.textContent = +a;
-  mainDisplay.textContent = +a;
-  let displayText = '';
+  mainDisplay.textContent += a;
+  
+  switch(a){
+    case "+": 
+      textValue = mainDisplay.textContent.slice(0,-1);
+      mainDisplay.textContent = '';
+      shouldClearDisplay = true
+      console.log(textValue)
+  }
 }
 
 
-function storeValue(a,b){
+function storeValues(a,b){
   firstOperand = a;
   secondOperand = b;
   operands = [firstOperand, secondOperand];
 }
 
-storeValue(20, 5)
+storeValues(20, 5)
 
 function add(a,b){
   answer = a + b;
@@ -65,15 +74,15 @@ divide(firstOperand, secondOperand);
 numerals.forEach((button) => {
   let value = button.value;
   button.textContent = button.value;
-  button.onclick = () => mainDisplay.textContent += value;
+  button.onclick = () => displayText(value)
 });
 operators.forEach((button) => {
   let value = button.value;
   button.textContent = button.value;
-  button.onclick = () => mainDisplay.textContent += value;
+  button.onclick = () => displayText(value)
 });
 clrAndDel.forEach((button) => {
   let value = button.value;
   button.textContent = value.toUpperCase()
-  button.onclick = () => mainDisplay.textContent += value;
+  button.onclick = () => displayText(value)
 });

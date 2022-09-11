@@ -24,43 +24,30 @@ let convertedValue = 0;
 function displayText(a){
   checkClearDisplay();
   mainDisplay.textContent += a;
-  convertValue(a);
-}
-
-function convertValue(a){
   switch(a){
     case "+": 
-      textValue = mainDisplay.textContent.slice(0,-1);
-      mainDisplay.textContent = '';
-      shouldClearDisplay = true;
-      console.log(textValue);
+      convertValue();
     break;
     case "-": 
-      textValue = mainDisplay.textContent.slice(0,-1);
-      mainDisplay.textContent = '';
-      shouldClearDisplay = true;
-      console.log(textValue);
+      convertValue();
     break;
     case "×": 
-      textValue = mainDisplay.textContent.slice(0,-1);
-      mainDisplay.textContent = '';
-      shouldClearDisplay = true;
-      console.log(textValue);
+      convertValue();
     break;
     case "÷": 
-      textValue = mainDisplay.textContent.slice(0,-1);
-      mainDisplay.textContent = '';
-      shouldClearDisplay = true;
-      console.log(textValue);
+      convertValue();
     break;
     case "=": 
-      textValue = mainDisplay.textContent.slice(0,-1);
-      mainDisplay.textContent = '';
-      shouldClearDisplay = true;
-      console.log(textValue);
+      convertValue();
     break;
   }
-  
+}
+
+function convertValue(){
+    textValue = mainDisplay.textContent.slice(0,-1);
+    mainDisplay.textContent = '';
+    shouldClearDisplay = true;
+    convertedValue = +textValue
 }
 
 

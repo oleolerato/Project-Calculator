@@ -19,19 +19,48 @@ function checkClearDisplay(){
 }
 
 let textValue = '';
-let convertedValue = 0
+let convertedValue = 0;
 
 function displayText(a){
   checkClearDisplay();
   mainDisplay.textContent += a;
-  
+  convertValue(a);
+}
+
+function convertValue(a){
   switch(a){
     case "+": 
       textValue = mainDisplay.textContent.slice(0,-1);
       mainDisplay.textContent = '';
-      shouldClearDisplay = true
-      console.log(textValue)
+      shouldClearDisplay = true;
+      console.log(textValue);
+    break;
+    case "-": 
+      textValue = mainDisplay.textContent.slice(0,-1);
+      mainDisplay.textContent = '';
+      shouldClearDisplay = true;
+      console.log(textValue);
+    break;
+    case "×": 
+      textValue = mainDisplay.textContent.slice(0,-1);
+      mainDisplay.textContent = '';
+      shouldClearDisplay = true;
+      console.log(textValue);
+    break;
+    case "÷": 
+      textValue = mainDisplay.textContent.slice(0,-1);
+      mainDisplay.textContent = '';
+      shouldClearDisplay = true;
+      console.log(textValue);
+    break;
+    case "=": 
+      textValue = mainDisplay.textContent.slice(0,-1);
+      mainDisplay.textContent = '';
+      shouldClearDisplay = true;
+      console.log(textValue);
+    break;
   }
+  
 }
 
 
@@ -48,28 +77,20 @@ function add(a,b){
   console.log(answer);
 }
 
-add(firstOperand, secondOperand);
-
 function subtract(a,b){
   answer = a - b;
   console.log(answer);
 }
-
-subtract(firstOperand, secondOperand);
 
 function multiply(a,b){
   answer = a * b;
   console.log(answer);
 }
 
-multiply(firstOperand, secondOperand);
-
 function divide(a,b){
   answer = a / b;
   console.log(answer);
 }
-
-divide(firstOperand, secondOperand);
 
 numerals.forEach((button) => {
   let value = button.value;

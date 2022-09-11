@@ -9,13 +9,27 @@ let firstOperand = 0;
 let secondOperand = 0;
 let operands = [firstOperand, secondOperand];
 let answer = 0;
-let shouldResetScreen = true;
+let shouldClearDisplay = true;
+
+function checkClearDisplay(){
+  if(shouldClearDisplay == true){
+    mainDisplay.textContent = "";
+    shouldResetDisplay = false;
+  }
+}
+
+function updateDisplayText(a){
+  checkClearDisplay();
+  mainDisplay.textContent = +a;
+  mainDisplay.textContent = +a;
+  let displayText = '';
+}
 
 
 function storeValue(a,b){
   firstOperand = a;
   secondOperand = b;
-  operands = [firstOperand, secondOperand]
+  operands = [firstOperand, secondOperand];
 }
 
 storeValue(20, 5)

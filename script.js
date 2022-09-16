@@ -77,18 +77,33 @@ function storeValues(a){
   }
 }
 
-function add(a,b){
+function add(a,b,c){
+  if (i >= 1){
+    c += b;
+    answer = c;
+    operands[0] = answer;
+  } else{
   answer = a + b;
+  }
   console.log(answer);
 }
 
-function subtract(a,b){
+function subtract(a,b,c){
+ if (i >= 1){
+    c -= b;
+    answer = c;
+    operands[0] = answer;
+  } else{
   answer = a - b;
-  console.log(answer);
+  }
 }
 
-function multiply(a,b){
-  if(b == 0){
+function multiply(a,b,c){
+  if (i >= 1 && b !== 0){
+    c *= b;
+    answer = c;
+    operands[0] = answer;
+  } else if(b == 0){
     answer = a * 1;
   } else{
   answer = a * b;
@@ -96,8 +111,12 @@ function multiply(a,b){
   console.log(answer);
 }
 
-function divide(a,b){
-  if(b == 0){
+function divide(a,b,c){
+  if (i >= 1 && b !== 0){
+    c *= b;
+    answer = c;
+    operands[0] = answer;
+  } else if(b == 0){
     answer = a / 1;
   } else{
   answer = a / b;
@@ -106,14 +125,23 @@ function divide(a,b){
 }
 
 function operate(a){
+  let holdAnswer = answer;
   switch(a){
-    case "+": add(operands[0], operands[1]);
+    case "+": 
+      add(operands[0], operands[1], holdAnswer);
+      currentOperation = "+";
     break;
-    case "-": subtract(operands[0], operands[1]);
+    case "-": 
+      subtract(operands[0], operands[1], holdAnswer);
+      currentOperation = "-";
     break;
-    case "×": multiply(operands[0], operands[1]);
+    case "×": 
+      multiply(operands[0], operands[1], holdAnswer);
+      currentOperation = "×";
     break;
-    case "÷": divide(operands[0], operands[1]);
+    case "÷": 
+      divide(operands[0], operands[1], holdAnswer);
+      currentOperation = "÷";
     break;
   }
   i++;

@@ -31,12 +31,15 @@ function displayText(a){
     break;
     case "-": 
       convertValue();
+      operate('-');
     break;
     case "×": 
       convertValue();
+      operate('×');
     break;
     case "÷": 
       convertValue();
+      operate('÷');
     break;
     case "=": 
       convertValue();
@@ -80,12 +83,20 @@ function subtract(a,b){
 }
 
 function multiply(a,b){
+  if(b == 0){
+    answer = a * 1
+  } else{
   answer = a * b;
+  }
   console.log(answer);
 }
 
 function divide(a,b){
+  if(b == 0){
+    answer = a / 1
+  } else{
   answer = a / b;
+  }
   console.log(answer);
 }
 
@@ -95,7 +106,7 @@ function operate(a){
     break;
     case "-": subtract(operands[0], operands[1]);
     break;
-    case "x": multiply(operands[0], operands[1]);
+    case "×": multiply(operands[0], operands[1]);
     break;
     case "÷": divide(operands[0], operands[1]);
     break;

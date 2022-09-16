@@ -162,6 +162,17 @@ function operate(a){
   console.log(answer)
 }
 
+function clear(){
+let currentOperation = 'none';
+let firstOperand = 0;
+let secondOperand = 0;
+let operands = [firstOperand, secondOperand];
+let answer = 0;
+let shouldClearDisplay = true;
+let changeOperand = false;
+let i = 0;
+}
+
 
 numerals.forEach((button) => {
   let value = button.value;

@@ -57,9 +57,10 @@ function convertValue(){
     storeValues(convertedValue);
 }
 
+let i = 0;
 
 function storeValues(a){
-  if(changeOperand == false){
+  if(changeOperand == false && i == 0){
     firstOperand = a;
     operands[0] = firstOperand;
     console.log(operands);
@@ -68,7 +69,11 @@ function storeValues(a){
     secondOperand = a;
     operands[1] = secondOperand;
     console.log(operands);
+    if(i > 0){
+      changeOperand = true;
+    } else {
     changeOperand = false;
+    }
   }
 }
 
@@ -84,7 +89,7 @@ function subtract(a,b){
 
 function multiply(a,b){
   if(b == 0){
-    answer = a * 1
+    answer = a * 1;
   } else{
   answer = a * b;
   }
@@ -93,7 +98,7 @@ function multiply(a,b){
 
 function divide(a,b){
   if(b == 0){
-    answer = a / 1
+    answer = a / 1;
   } else{
   answer = a / b;
   }
@@ -111,6 +116,7 @@ function operate(a){
     case "÷": divide(operands[0], operands[1]);
     break;
   }
+  i++;
 }
 
 

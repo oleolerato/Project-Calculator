@@ -43,6 +43,7 @@ function displayText(a){
     break;
     case "=": 
       convertValue();
+      operate('=');
     break;
   }
 }
@@ -85,7 +86,6 @@ function add(a,b,c){
   } else{
   answer = a + b;
   }
-  console.log(answer);
 }
 
 function subtract(a,b,c){
@@ -108,12 +108,11 @@ function multiply(a,b,c){
   } else{
   answer = a * b;
   }
-  console.log(answer);
 }
 
 function divide(a,b,c){
   if (i >= 1 && b !== 0){
-    c *= b;
+    c /= b;
     answer = c;
     operands[0] = answer;
   } else if(b == 0){
@@ -121,7 +120,6 @@ function divide(a,b,c){
   } else{
   answer = a / b;
   }
-  console.log(answer);
 }
 
 function operate(a){
@@ -143,8 +141,25 @@ function operate(a){
       divide(operands[0], operands[1], holdAnswer);
       currentOperation = "÷";
     break;
+    case "=":
+      switch (currentOperation){
+        case "+": 
+          add(operands[0], operands[1], holdAnswer);
+        break;
+        case "-": 
+          subtract(operands[0], operands[1], holdAnswer);
+        break;
+        case "×": 
+          multiply(operands[0], operands[1], holdAnswer);
+        break;
+        case "÷": 
+          divide(operands[0], operands[1], holdAnswer);
+        break;
+        default: answer *= 1;
+      }
   }
   i++;
+  console.log(answer)
 }
 
 

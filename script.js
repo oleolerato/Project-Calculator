@@ -79,12 +79,10 @@ function storeValues(a){
   if(changeOperand == false && i == 0){
     firstOperand = a;
     operands[0] = firstOperand;
-    console.log(operands);
     changeOperand = true;
   } else if (changeOperand == true){
     secondOperand = a;
     operands[1] = secondOperand;
-    console.log(operands);
     if(i > 0){
       changeOperand = true;
     } else {
@@ -118,9 +116,9 @@ function multiply(a,b,c){
     c *= b;
     answer = c;
     operands[0] = answer;
-  } else if(b == 0){
+  } else if(b == 0 ){
     answer = a * 1;
-  } else{
+  }else{
   answer = a * b;
   }
 }

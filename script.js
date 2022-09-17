@@ -23,7 +23,11 @@ let convertedValue = 0;
 
 function displayText(a){
   checkClearDisplay();
-  mainDisplay.textContent += a;
+  if(a == '(-)'){
+    mainDisplay.textContent += "-"
+  } else{
+    mainDisplay.textContent += a;
+  }
   switch(a){
     case "+": 
       convertValue();

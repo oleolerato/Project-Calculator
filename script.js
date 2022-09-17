@@ -45,6 +45,12 @@ function displayText(a){
       convertValue();
       operate('=');
     break;
+    case "delete":
+      mainDisplay.textContent = mainDisplay.textContent.slice(0,-7);
+    break;
+    case "clear":
+      clear();
+    break;
   }
 }
 
@@ -163,14 +169,16 @@ function operate(a){
 }
 
 function clear(){
-let currentOperation = 'none';
-let firstOperand = 0;
-let secondOperand = 0;
-let operands = [firstOperand, secondOperand];
-let answer = 0;
-let shouldClearDisplay = true;
-let changeOperand = false;
-let i = 0;
+mainDisplay.textContent = '';
+subDisplay.textContent = '';
+currentOperation = 'none';
+firstOperand = 0;
+secondOperand = 0;
+operands = [firstOperand, secondOperand];
+answer = 0;
+shouldClearDisplay = true;
+changeOperand = false;
+i = 0;
 }
 
 

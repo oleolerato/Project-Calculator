@@ -1,0 +1,35 @@
+body{
+  margin: 0;
+  padding: 0;
+  font-family: Arial;
+}
+
+#calculator{
+  display: flex;
+  flex-direction: column;
+  background-color: #950000;
+}
+
+#calcButtons{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  border: 2px solid black;
+}
+
+.subDisplay{
+  height: 25px;
+  border: 2px solid black;
+}
+
+.mainDisplay{
+  height: 50px;
+  border: 2px solid black;
+  text-align: left;
+}
+
+.numerals,
+.clearAndDel,
+.operators{
+  display: grid;
+}

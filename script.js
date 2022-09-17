@@ -4,7 +4,7 @@ const numerals = document.querySelectorAll('.numerals button');
 const operators = document.querySelectorAll('.operators button');
 const clrAndDel = document.querySelectorAll('.clearAndDel button');
 
-let currentOperation = 'none';
+let currentOperation = '=';
 let firstOperand = 0;
 let secondOperand = 0;
 let operands = [firstOperand, secondOperand];
@@ -28,22 +28,27 @@ function displayText(a){
     case "+": 
       convertValue();
       operate('+');
+      subDisplay.textContent = `${answer} + `;
     break;
     case "-": 
       convertValue();
       operate('-');
+      subDisplay.textContent = `${answer} - `;
     break;
     case "×": 
       convertValue();
       operate('×');
+      subDisplay.textContent = `${answer} × `;
     break;
     case "÷": 
       convertValue();
       operate('÷');
+      subDisplay.textContent = `${answer} ÷ `;
     break;
     case "=": 
       convertValue();
       operate('=');
+      subDisplay.textContent = `${answer}`;
     break;
     case "delete":
       mainDisplay.textContent = mainDisplay.textContent.slice(0,-7);
@@ -161,11 +166,17 @@ function operate(a){
         case "÷": 
           divide(operands[0], operands[1], holdAnswer);
         break;
-        default: answer *= 1;
+        case "=": 
+            if(i < 1){
+            answer = operands[0];
+          } else {
+            answer = operands[1];
+          }
+        break;
       }
   }
   i++;
-  console.log(answer)
+  mainDisplay.textContent = answer
 }
 
 function clear(){
@@ -177,6 +188,8 @@ secondOperand = 0;
 operands = [firstOperand, secondOperand];
 answer = 0;
 shouldClearDisplay = true;
+textValue = '';
+convertedValue = 0;
 changeOperand = false;
 i = 0;
 }
